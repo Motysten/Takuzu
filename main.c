@@ -149,7 +149,11 @@ void generateEasy(int solution[6][6], int (*user)[6]) {
 }
 
 void show(int grid[6][6]) {
-    printf("---------------------\n");
+    if (complete(grid)) {
+        printf("------SOLUTION-------\n");
+    } else {
+        printf("---------------------\n");
+    }
     printf("    0--1--2--3--4--5\n");
     for (int i = 0; i < 6; i++) {
         printf(" %d>", i);
@@ -193,6 +197,8 @@ int main() {
 
     int solution[6][6] = {{0, 1, 0, 0, 1, 1}, {1, 0, 0, 1, 0, 1}, {1, 0, 1, 0, 1, 0}, {0, 1, 0, 1, 0, 1}, {1, 0, 1, 1, 0, 0}, {0, 1, 1, 0, 1, 0}};
     int user[6][6] = {{2, 2, 2, 2, 2, 2}, {2, 2, 2, 2, 2, 2}, {2, 2, 2, 2, 2, 2}, {2, 2, 2, 2, 2, 2}, {2, 2, 2, 2, 2, 2}, {2, 2, 2, 2, 2, 2}};
+
+    show(solution);
 
     int easy;
     printf("Voulez vous une grille facile (1 = oui / 2 = non) ?\n");
